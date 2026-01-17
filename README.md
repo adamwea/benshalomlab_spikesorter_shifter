@@ -24,8 +24,11 @@ Optional overrides:
 
 3) Sanity check:
 
-- `docker run --rm adammwea/benshalomlab_spikesorter_shifter:v1 bash -lc 'python3 -c "import h5py; print(\"h5py OK\")"'`
-- `docker run --rm adammwea/benshalomlab_spikesorter_shifter:v1 bash -lc 'echo $HDF5_PLUGIN_PATH && ls -1 $HDF5_PLUGIN_PATH | head'`
+- `docker run --rm --entrypoint python3 adammwea/benshalomlab_spikesorter_shifter:v1 -c "import h5py; print('h5py OK')"`
+- `docker run --rm --entrypoint /bin/bash adammwea/benshalomlab_spikesorter_shifter:v1 -lc 'echo $HDF5_PLUGIN_PATH && ls -1 "$HDF5_PLUGIN_PATH" | head'`
+
+If your tag is built from this repo after Jan 2026, it clears the inherited base ENTRYPOINT
+so `docker run ... bash -lc '...'` behaves normally (recommended for Shifter).
 
 ## Pull into Shifter (NERSC)
 

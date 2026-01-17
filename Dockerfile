@@ -11,8 +11,17 @@ COPY maxwell_hdf5_plugin /opt/maxwell_hdf5_plugin
 ENV HDF5_PLUGIN_PATH=/opt/maxwell_hdf5_plugin/Linux
 
 WORKDIR /workspace
-# The base image defines an ENTRYPOINT (/entrypoint.sh) that auto-updates MEA_Analysis
-# and immediately runs run_pipeline_driver.py. For NERSC Shifter and interactive work
-# we want a predictable shell by default, so clear the inherited ENTRYPOINT.
-ENTRYPOINT []
+
+# Provide our own entrypoint so we can control which MEA_Analysis repo/branch is used.
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Defaults can be overridden at runtime via environment variables.
+ENV MEA_ANALYSIS_REPO_URL=https://github.com/roybens/MEA_Analysis.git
+ENV MEA_ANALYSIS_BRANCH=dev_branch_aw_2
+ENV MEA_ANALYSIS_DIR=/MEA_Analysis
+ENV MEA_ANALYSIS_AUTO_UPDATE=1
+ENV MEA_ANALYSIS_AUTO_RUN=1
+
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["bash"]

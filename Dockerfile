@@ -18,7 +18,7 @@ RUN chmod +x /entrypoint.sh
 
 # Defaults can be overridden at runtime via environment variables.
 ENV MEA_ANALYSIS_REPO_URL=https://github.com/roybens/MEA_Analysis.git
-ENV MEA_ANALYSIS_BRANCH=dev_branch_aw_2
+ENV MEA_ANALYSIS_BRANCH=main
 ENV MEA_ANALYSIS_DIR=/MEA_Analysis
 ENV MEA_ANALYSIS_AUTO_UPDATE=1
 ENV MEA_ANALYSIS_AUTO_RUN=1

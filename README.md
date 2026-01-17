@@ -33,7 +33,7 @@ This image uses an entrypoint that can auto-update and run Mandar’s driver. Yo
 which MEA_Analysis repo/branch it uses via env vars:
 
 - `MEA_ANALYSIS_REPO_URL` (default: `https://github.com/roybens/MEA_Analysis.git`)
-- `MEA_ANALYSIS_BRANCH` (default: `dev_branch_aw_2`)
+- `MEA_ANALYSIS_BRANCH` (default: `main`)
 
 Example (run pipeline using your branch explicitly):
 

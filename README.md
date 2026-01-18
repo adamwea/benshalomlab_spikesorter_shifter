@@ -52,7 +52,7 @@ On a Perlmutter login node:
 
 Allocate an interactive GPU node using the image:
 
-- `salloc -A <YOUR_ALLOCATION> -q interactive -C gpu -t 04:00:00 --nodes=1 --gpus=1 --image=adammwea/benshalomlab_spikesorter_shifter:v1`
+- `salloc -A <YOUR_ALLOCATION> -q interactive -C gpu -t 04:00:00 --nodes=1 --gpus=1 --image=docker:adammwea/benshalomlab_spikesorter_shifter:v1`
 
 ## Notes
 
